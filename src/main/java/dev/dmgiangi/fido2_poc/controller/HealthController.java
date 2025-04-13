@@ -1,38 +1,38 @@
 package dev.dmgiangi.fido2_poc.controller;
 
 import com.azure.data.tables.TableServiceClient;
-import com.azure.data.tables.models.TableServiceStatistics;
+import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
-import com.azure.storage.blob.models.BlobServiceStatistics;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/health")
+@RequestMapping
 public class HealthController {
-    private final BlobServiceClient blobServiceClient;
+    private final BlobContainerClient fido2ContainerClient;
     private final TableServiceClient tableServiceClient;
 
     public HealthController(BlobServiceClient blobServiceClient,
                             TableServiceClient tableServiceClient) {
-        this.blobServiceClient = blobServiceClient;
+        this.fido2ContainerClient = blobServiceClient.getBlobContainerClient("fido2");
+
         this.tableServiceClient = tableServiceClient;
     }
 
-    @GetMapping
+    @GetMapping("/health")
     public String health() {
         return "OK";
     }
 
-    @GetMapping("/health")
+    @GetMapping("/ready")
     public Health ready() {
-        final var blobStatistics = blobServiceClient.getStatistics();
-        final var tableStatistics = tableServiceClient.getStatistics();
-        return new Health(blobStatistics, tableStatistics);
+        return new Health(
+                fido2ContainerClient.exists(),
+                tableServiceClient.listTables().iterator().hasNext());
     }
 
-    public record Health(BlobServiceStatistics blobServiceClient,
-                         TableServiceStatistics tableServiceClient) {
+    public record Health(boolean blobConnected,
+                         boolean tableConnected) {
     }
 }

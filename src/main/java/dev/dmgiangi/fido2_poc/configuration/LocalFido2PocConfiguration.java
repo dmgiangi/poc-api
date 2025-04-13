@@ -15,16 +15,24 @@ public class LocalFido2PocConfiguration {
     @Bean
     public BlobServiceClient blobServiceClient(
             @Value("${STORAGE_ACCOUNT_CONNECTION_STRING}") String connectionString) {
-        return new BlobServiceClientBuilder()
+        final var blobServiceClient = new BlobServiceClientBuilder()
                 .connectionString(connectionString)
                 .buildClient();
+
+        blobServiceClient.createBlobContainerIfNotExists("fido2").createIfNotExists();
+
+        return blobServiceClient;
     }
 
     @Bean
     public TableServiceClient tableServiceClient(
             @Value("${STORAGE_ACCOUNT_CONNECTION_STRING}") String connectionString) {
-        return new TableServiceClientBuilder()
+        final var tableServiceClient = new TableServiceClientBuilder()
                 .connectionString(connectionString)
                 .buildClient();
+
+        tableServiceClient.getTableClient("user");
+
+        return tableServiceClient;
     }
 }

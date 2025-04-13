@@ -34,7 +34,6 @@
 		<dependency>
 			<groupId>com.azure</groupId>
 			<artifactId>azure-data-tables</artifactId>
-			<version>12.5.3</version>
 		</dependency>
 
 		<dependency>
@@ -47,9 +46,16 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>3.4.4</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
 				<groupId>com.azure.spring</groupId>
 				<artifactId>spring-cloud-azure-dependencies</artifactId>
-				<version>${spring-cloud-azure.version}</version>
+				<version>5.22.0</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
