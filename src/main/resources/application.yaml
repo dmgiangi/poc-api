@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: fido2-poc
+
+entra:
+    credential:
+      client-id: ${ENTRA_CLIENT_ID}
+      client-secret: ${ENTRA_CLIENT_SECRET}
+      tenant-id: ${ENTRA_TENANT_ID}
