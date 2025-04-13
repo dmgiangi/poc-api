@@ -21,7 +21,12 @@ public class HealthController {
     }
 
     @GetMapping
-    public Health health() {
+    public String health() {
+        return "OK";
+    }
+
+    @GetMapping("/health")
+    public Health ready() {
         final var blobStatistics = blobServiceClient.getStatistics();
         final var tableStatistics = tableServiceClient.getStatistics();
         return new Health(blobStatistics, tableStatistics);
