@@ -4,6 +4,7 @@ spring:
   datasource:
     url: jdbc:sqlserver://sqldb-main-server.database.windows.net:1433;database=sqldb-main;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: fido2-poc-id-be23
 
 entra-id:
     credential:
