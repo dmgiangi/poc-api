@@ -23,9 +23,9 @@ import java.util.HashMap;
 public class GraphConfiguration {
     @Bean
     public RestTemplate graphServiceClient(
-            @Value("${entra.credential.client-id}") String clientId,
-            @Value("${entra.credential.client-secret}") String clientSecret,
-            @Value("${entra.credential.tenant-id}") String tenantId,
+            @Value("${entra-id.credential.client-id}") String clientId,
+            @Value("${entra-id.credential.client-secret}") String clientSecret,
+            @Value("${entra-id.credential.tenant-id}") String tenantId,
             RestTemplateBuilder builder) {
         return builder
                 .rootUri("https://graph.microsoft.com")

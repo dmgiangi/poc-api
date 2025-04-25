@@ -1,6 +1,5 @@
 package dev.dmgiangi.fido2_poc.service.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public class Fido2AuthenticationMethod {

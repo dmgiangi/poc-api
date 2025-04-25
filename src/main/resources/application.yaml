@@ -1,8 +1,11 @@
 spring:
   application:
     name: fido2-poc
+  datasource:
+    url: jdbc:sqlserver://sqldb-main-server.database.windows.net:1433;database=sqldb-main;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
-entra:
+entra-id:
     credential:
       client-id: ${ENTRA_CLIENT_ID}
       client-secret: ${ENTRA_CLIENT_SECRET}
