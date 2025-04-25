@@ -2,7 +2,7 @@ spring:
   application:
     name: fido2-poc
   datasource:
-    url: jdbc:sqlserver://sqldb-main-server.database.windows.net:1433;database=sqldb-main;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=DefaultAzureCredential
+    url: jdbc:sqlserver://sqldb-main-server.database.windows.net:1433;database=sqldb-main;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryDefault
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   jpa:
     properties:
