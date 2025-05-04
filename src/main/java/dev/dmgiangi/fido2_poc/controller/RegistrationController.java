@@ -45,13 +45,19 @@ public class RegistrationController {
         final var userPrincipalName = user.getUserPrincipalName();
         final var fido2CreationOption = graphService.getFido2CreationOption(userPrincipalName);
         fido2CreationOption.getPublicKey().setRp(new Rp("api.dmgiangi.dev", "FIDO2 POC"));
+        fido2CreationOption.getPublicKey().setTimeout(60000);
+        fido2CreationOption
+                .getPublicKey()
+                .setExtensions(
+                        Map.of("hmacCreateSecret", true,
+                                "enforceCredentialProtectionPolicy", true,
+                                "credentialProtectionPolicy", "userVerificationRequired"));
 
         final var webAuthNInitiationResponse = new WebAuthNInitiationResponse(
                 UUID.randomUUID(),
                 userPrincipalName,
                 fido2CreationOption.getChallengeTimeoutDateTime(),
                 fido2CreationOption.getPublicKey());
-
 
         REGISTRATION_REQUEST.put(webAuthNInitiationResponse.getCreationRequestId(), webAuthNInitiationResponse);
 
