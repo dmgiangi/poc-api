@@ -52,9 +52,7 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_588FEA5791BD40008493639A7C6B0228 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E17669972298463F884EFA687FF07644 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1E10293802014209B051B8C19133ECC3 }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -63,4 +61,3 @@ jobs:
           app-name: 'fido2-poc'
           slot-name: 'Production'
           package: '*.jar'
-          
