@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-public class Fido2PocConfiguration {
+public class StorageAccountConfiguration {
     @Bean
     @Profile("default")
     public BlobServiceClient blobServiceClient() {

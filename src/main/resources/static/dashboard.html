@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Employee Dashboard</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="form-container">
+    <h1>Welcome to Your Dashboard</h1>
+    <p>You have successfully authenticated with your passkey!</p>
+
+    <div class="dashboard-content">
+        <p>This is a protected area that requires authentication.</p>
+        <p>In a real application, you would see your personal information and be able to perform actions here.</p>
+    </div>
+
+    <div class="links">
+        <a href="index.html">Logout</a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // In a real application, you would check if the user is authenticated
+        // and redirect to the login page if not
+    });
+</script>
+</body>
+</html>

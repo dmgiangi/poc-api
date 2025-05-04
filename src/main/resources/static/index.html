@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Employee Login</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="form-container">
+    <h1>Employee Login</h1>
+    <p>Use your passkey to login</p>
+
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="employeeId">Employee ID</label>
+            <input id="employeeId" min="0" name="employeeId" required type="number">
+            <div class="error-message" id="employeeIdError">Please enter a valid non-negative employee ID</div>
+        </div>
+
+        <button id="submitBtn" type="submit">
+            <span class="loading"></span>
+            Login with Passkey
+        </button>
+        <div id="responseMessage"></div>
+    </form>
+
+    <div class="links">
+        <a href="register.html">Register a new passkey</a>
+    </div>
+</div>
+
+<script src="js/login.js"></script>
+</body>
+</html>

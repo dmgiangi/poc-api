@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Employee Registration Initiation</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="form-container">
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="employeeId">Employee ID</label>
+            <input id="employeeId" min="0" name="employeeId" required type="number">
+            <div class="error-message" id="employeeIdError">Please enter a valid non-negative employee ID</div>
+        </div>
+
+        <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input id="dateOfBirth" max="" name="dateOfBirth" required type="date">
+            <div class="error-message" id="dobError">Please select a valid date in the past</div>
+        </div>
+
+        <div class="form-group">
+            <label for="verificationCode">Verification Code (6 digits)</label>
+            <input id="verificationCode" maxlength="6" name="verificationCode"
+                   pattern="\d{6}" required type="text">
+            <div class="error-message" id="codeError">Please enter a 6-digit verification code</div>
+        </div>
+
+        <button id="submitBtn" type="submit">
+            <span class="loading"></span>
+            Submit Registration
+        </button>
+        <div id="responseMessage"></div>
+    </form>
+
+    <div class="links">
+        <a href="index.html">Login with an existing passkey</a>
+    </div>
+</div>
+
+<script src="js/register.js"></script>
+</body>
+</html>
