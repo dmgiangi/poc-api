@@ -3,7 +3,7 @@ spring:
     name: fido2-poc
 
 app:
-  backend-url: https://fido.dmgiangi.dev
+  backend-url: https://api.dmgiangi.dev
 
 entra-id:
     credential:

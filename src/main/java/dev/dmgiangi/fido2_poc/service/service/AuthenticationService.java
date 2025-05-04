@@ -47,7 +47,7 @@ public class AuthenticationService {
         return new Fido2AuthenticationOptions(
                 challengeBase64,
                 300000,
-                "fido.dmgiangi.dev",
+                "api.dmgiangi.dev",
                 allowCredentials,
                 "preferred");
     }

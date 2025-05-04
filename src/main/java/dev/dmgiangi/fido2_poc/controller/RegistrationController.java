@@ -44,7 +44,7 @@ public class RegistrationController {
     private WebAuthNInitiationResponse getFido2CreationOption(EntraUser user) {
         final var userPrincipalName = user.getUserPrincipalName();
         final var fido2CreationOption = graphService.getFido2CreationOption(userPrincipalName);
-        fido2CreationOption.getPublicKey().setRp(new Rp("fido.dmgiangi.dev", "FIDO2 POC"));
+        fido2CreationOption.getPublicKey().setRp(new Rp("api.dmgiangi.dev", "FIDO2 POC"));
 
         final var webAuthNInitiationResponse = new WebAuthNInitiationResponse(
                 UUID.randomUUID(),
