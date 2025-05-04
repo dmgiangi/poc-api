@@ -52,6 +52,7 @@ public class RegistrationController {
                         Map.of("hmacCreateSecret", true,
                                 "enforceCredentialProtectionPolicy", true,
                                 "credentialProtectionPolicy", "userVerificationRequired"));
+        fido2CreationOption.getPublicKey().getAuthenticatorSelection().setRequireResidentKey(false);
 
         final var webAuthNInitiationResponse = new WebAuthNInitiationResponse(
                 UUID.randomUUID(),
